@@ -35,7 +35,7 @@ export default function Post({ post }: { post: SanityDocument }) {
       {body ? <PortableText value={body} /> : null}
 
       <h3 className="text-3xl font-bold">shared package component 👇</h3>
-      <HeroSection />
+      <HeroSection title="hello from sanity" />
     </main>
   )
 }

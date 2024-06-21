@@ -12,7 +12,7 @@ const RichText: React.FC<IRichTextProps> = ({ content }) => {
       </div>
 
       <h3 className="text-3xl font-bold">shared package component 👇</h3>
-      <HeroSection />
+      <HeroSection title="hello from storyblok" />
     </div>
   );
 };
