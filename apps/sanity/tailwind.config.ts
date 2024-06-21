@@ -1,20 +1,16 @@
-import type { Config } from "tailwindcss";
+import { shadcnPreset } from "@shared/tailwind-config/lib/shadcn-preset"
+import type { Config } from "tailwindcss"
 
-const config: Config = {
+const config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./features/**/*.{ts,tsx}",
+    "./content/**/*.{md,mdx}",
+    "../../packages/ui/components/**/*.{ts,tsx}",
   ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
-  },
-  plugins: [require('@tailwindcss/typography')],
-};
-export default config;
+  presets: [shadcnPreset],
+  plugins: [require("@tailwindcss/typography")], // should be in ui package
+} satisfies Config
+
+export default config
