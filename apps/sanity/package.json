@@ -19,10 +19,14 @@
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.28.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "@shared/ui": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "@shared/eslint-config": "workspace:*",
+    "@shared/tailwind-config": "workspace:*",
+    "@shared/ts-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
