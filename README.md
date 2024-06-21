@@ -1,77 +1,98 @@
-![image](https://github.com/focusreactive/cms-kit-sanity/assets/14885189/906e606d-b8f3-4d90-b562-4a2bf014bc26)
+# Next.js 14 with Turborepo
 
-# CMS-KIT-SANITY
+An open source application built using the new router, server components and everything new in Next.js 14.
 
-An endeavor accumulating the experience and best practices collected at Focus Reactive. The project serves the idea of making Headless CMS-based development accessible, comfortable, and fast.
+## Demo 👀
 
-## What is CMS-KIT?
+> **Warning**
+> This app is a work in progress.
+> https://turborepo-nextjs.vercel.app/
 
-CMS is the collection of ideas and their tech implementations to change how we develop modern marketing and eCommerce websites. What it includes:
+## Features 🌟
 
-- **Boilerplate**. Contains all necessary customizations and integrations for seamless interaction with Headless CMS.
-- **Auto Deployment**. Automatically set up accounts in Headless CMS and hosting on Vercel. Connect everything to each other, and to the repository on GitHub. Set environment variables, connect webhooks, and upload initial demo content.
-- **CMS Setup**. This contains the necessary plugins and settings for CMS. It generates a content model based on available components. It deeply integrates the Components Set with CMS for the best editorial experience.
-- **Starter components kit**. Adds a starter components kit (one or more) with everything you need for integration with CMS and further development of your project.
-- Project **Structure** and development **guidelines**. The project is aimed at long-term development and provides everything necessary for scaling and adding new features. It does not restrict developers in their intentions but gently encourages developers on how to develop and model new components quickly
+- 🚀 Monorepo using **Turborepo**
+- 📁 New `/app` dir,
+- 🗂️ Routing, Layouts, Nested Layouts and Layout Groups
+- 🌎 Data Fetching, Caching and Mutation
+- ⏱️ Loading UI
+- 🛠️ Server and Client Components
+- 🚦 API Routes and Middlewares
+- 👮‍♂️ Authentication using **Clerk**
+- 🌱 Database using **MongoDB**
+- 🧩 UI Components built using **Radix UI**
+- 🎨 Styled using **Tailwind CSS**
+- 👨‍🎨 Styleguide using **Storybook**
+- ⚡️ Validations using **Zod**
+- 🛟 Validation for type-safe environment variables using **T3 Env**
+- 👷🏼‍♂️ Written in **TypeScript**
 
-![image](https://github.com/focusreactive/cms-kit-sanity/assets/14885189/63f13dd0-c8a0-4c54-9881-b657870d6dd8)
+## What's inside?
 
-## For who?
+This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
 
-- **Developers**. Can quickly start the project in minutes and go fast in component development.
-- **Content Editors**. Intuitive navigation and visual preview of what they're creating.
-- **Project managers**. Can test the system without developers (see one-click rollout).
-- **Teams**. Develop content and new features in parallel. Fast time to market.
+### Apps and Packages
 
-## What is inside?
+- `web`: another [Next.js 14](https://nextjs.org) app
+- `storybook`: a [Storybook](https://storybook.js.org/blog/in-app-tour-for-new-users/) app
+- `ui`: a stub React component library shared by both `web` and `docs` applications
+- `eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `ts-config`: `tsconfig.json`s used throughout the monorepo
+- `tailwind-config`: `tsconfig.json`s used throughout the monorepo
 
-![image](https://github.com/focusreactive/cms-kit-sanity/assets/14885189/d963844b-b378-4925-82fa-28ed6a4d9b07)
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-Meet our first implementation of the CMS-KIT: CMS-KIT-SANITY - the powerful mix of the most flexible CMS and top-notch frontend boilerplate.
+### Utilities
 
-- NextJS with app router. The best option for static and dynamic content rendering. Highly optimized for SEO and Performance.
-- Live preview, Visual Editing, and Template rendering.
-- Tailwind-based Starter Components set. Later, we will add more Pluggable Components Sets based on other CSS Frameworks.
-- Auto rollout for Vercel and Sanity accounts.
-- Templates selector plugin for Sanity Studio.
-- Initial content example.
-- Typescript
+This turborepo has some additional tools already setup:
 
-## Get started
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
-1. [Create](https://github.com/new?template_name=cms-kit-sanity&template_owner=focusreactive) an own repo from this template
-2. Wait 30 seconds while the initial action is processed and the update is committed to your repo. As a result you will have a `.env.initial` file with your personal settings
-3. After that feel free to continue working locally (see the next section)
+### Build
 
-### Local development
+To build all apps and packages, run the following command:
 
-`git clone` your repo
+```
+cd my-turborepo
+pnpm run build
+```
 
-use `pnpm i` or `npm i --legacy-peer-deps` to install dependencies
+### Develop
 
-Do `pnpm run rollout` - this tool will pass you through some simple steps where you create or login to required accounts and fill .env with required variables. Then this tool will automatically setup and connect Vercel, Sanity and Github repo so as a result you will have a properly set up system including Headless CMS, Modern Hosting and Github repository.
+To develop all apps and packages, run the following command:
 
-`pnpm run dev` to run local dev server
+```
+cd my-turborepo
+pnpm run dev
+```
 
-open http://localhost:3000/ to preview pages
+### Remote Caching
 
-open http://localhost:3000/admin to enter Sanity Studio
+Turborepo can use a technique known as [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
 
-## Credits
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
-This project was created at **FocusReactive**, the expert consultancy for the modern web. We specialize in helping clients beat the competition and accelerate business growth. With deep expertise in headless CMS, NextJS, and eCommerce, we deliver cutting-edge solutions that prioritize your business goals.
+```
+cd my-turborepo
+pnpm dlx turbo login
+```
 
-### Our Expertise
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
 
-- **Content-Centric Websites**: We have deep experience in building extendable, SEO-optimized content and marketing websites with advanced CMS integrations and analytics.
-- **Headless eCommerce**: Our next-generation, content-rich, and performant online eCommerce websites come with end-to-end integrations to power your digital business.
-- **Headless CMS Consulting**: We offer multi-channel CMS development, modeling, customization, and support to help you manage your content seamlessly across various platforms.
-- **Web Performance**: Our experts can audit, transform the architecture, and optimize your website to meet the 100 SCORE Core Web Vitals for exceptional web performance.
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
 
-If you're looking for expertise in headless CMS, NextJS, or eCommerce, get in touch with **FocusReactive** today. Visit our website at [focusreactive.com](https://focusreactive.com/) to learn more about how we can help you accelerate your business growth.
+```
+pnpm dlx turbo link
+```
 
-<image src="https://github.com/focusreactive/MVP-NextJS13-New-Features/assets/14885189/7c67e385-3f79-43e3-ba27-bada1ebddf03" width="500px"/>
+## Useful Links
 
-## License
+Learn more about the power of Turborepo:
 
-_This project is licensed under the MIT License. © 2024 FocusReactive._
+- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
+- [Caching](https://turborepo.org/docs/core-concepts/caching)
+- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
+- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
+- [Configuration Options](https://turborepo.org/docs/reference/configuration)
+- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
