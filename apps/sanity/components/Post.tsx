@@ -6,6 +6,8 @@ import { PortableText } from "@portabletext/react"
 import imageUrlBuilder from "@sanity/image-url"
 import type { SanityDocument } from "next-sanity"
 
+import { HeroSection } from "@shared/ui"
+
 const builder = imageUrlBuilder({ projectId, dataset })
 
 export default function Post({ post }: { post: SanityDocument }) {
@@ -31,6 +33,9 @@ export default function Post({ post }: { post: SanityDocument }) {
         />
       ) : null}
       {body ? <PortableText value={body} /> : null}
+
+      <h3 className="text-3xl font-bold">shared package component 👇</h3>
+      <HeroSection />
     </main>
   )
 }

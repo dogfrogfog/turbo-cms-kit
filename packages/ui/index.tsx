@@ -23,6 +23,8 @@ export * from "./components/ui/sheet"
 export * from "./components/ui/skeleton"
 export * from "./components/ui/table"
 export * from "./components/ui/toast"
+export * from "./components/sections/hero"
+export * from "./components/sections/copy5050"
 
 export { cn } from "./utils"
 export { useToast, toast } from "./components/ui/toast/use-toast"
